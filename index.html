@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no">
+    <title>Portafolio</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon_1.ico" type="image/x-icon">
+    <style>
+      @keyframes animate-circle {
+      	from {
+      		transform: scale(0);
+      		opacity: 1;
+      	}
+      	to {
+      		transform: scale(1);
+      		opacity: 0;
+      	}
+      }
+      #preloader{
+      	width: 100%;
+      	height: 100%;
+      	position: fixed;
+      	top: 0;
+      	left: 0;
+      	z-index: 999;
+      	background: #1C1C1C;
+      	background: linear-gradient(to right, rgba(36, 31, 31, 1) 0%, rgba(36, 31, 31, 1) 32%, rgba(74, 71, 70, 1) 100%);
+      }
+      .loader {
+      	position: fixed;
+      	top: 50%;
+      	left: 50%;
+      	height: 10rem;
+      	width: 10rem;
+      	transform: translateX(-50%) translateY(-50%);
+      }
+      .loader > .circle {
+      	position: absolute;
+      	height: inherit;
+      	width: inherit;
+      	background: #B66449;
+      	border-radius: 0;
+      	animation: animate-circle 2s cubic-bezier(.9, .24, .62, .79) infinite;
+      }
+      .loader > .circle:nth-of-type(1) {
+      	animation-delay: 0s;
+      }
+      .loader > .circle:nth-of-type(2) {
+      	animation-delay: calc(2s / -3);
+      }
+      .loader > .circle:nth-of-type(3) {
+      	animation-delay: calc(2s / -6);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </div>
+    <main class="main main--home" style="opacity:0">
+      <canvas class="noise" id="noise"></canvas>
+      <div class="header">
+        <div class="header__left">
+          <div class="header__letter">P</div>
+          <div class="header__socials"><a href="" target="_blank">
+              <!-- <svg>
+                <use xlink:href="./svg/sprite.svg#fb"></use>
+              </svg><a href="" target="_blank"></a> -->
+              <svg>
+                <use xlink:href="./svg/sprite.svg#tw"></use>
+              </svg><a href="" target="_blank"></a>
+              <svg>
+                <use xlink:href="./svg/sprite.svg#in"></use>
+              </svg><a href="" target="https://www.linkedin.com/in/daniel-hernan-rivera"></a></div>
+        </div>
+        <div class="header__right">
+          <ul class="header__menu">
+            <li class="active"><a class="js-scroll-link" href="javascript:;" data-link="0">Inicio</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="1">Habilidades</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="2">Reconocimientos</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="3">Referencias</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="4">Educación</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="5">Proyectos</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="6">CONTACTO</a></li>
+          </ul>
+          <div class="header__phone"><a href="tel:+50364457757">+(503) 6445 7757</a></div>
+        </div>
+      </div>
+      <div class="scroll">
+        <div class="home-page">
+          <div class="page-title show">
+            <ul>
+              <li>
+                <div class="title">Presentación</div>
+                <div class="number">1.0</div>
+              </li>
+              <li>
+                <div class="title">Habilidades</div>
+                <div class="number">2.0</div>
+              </li>
+              <li>
+                <div class="title">reconocimientos</div>
+                <div class="number">3.0</div>
+              </li>
+              <li>
+                <div class="title">referencias</div>
+                <div class="number">4.0</div>
+              </li>
+              <li>
+                <div class="title">Educación</div>
+                <div class="number">5.0</div>
+              </li>
+              <li>
+                <div class="title">proyectos</div>
+                <div class="number">6.0</div>
+              </li>
+              <li>
+                <div class="title">contacto</div>
+                <div class="number">7.0</div>
+              </li>
+            </ul>
+            <canvas class="noise noise--inner" id="noise_menu"></canvas>
+          </div>
+          <div class="scrollable">
+            <section class="home">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>my name is robert</div>
+                    <div>1.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1">Innovación</div>
+                    <div class="h1">en la</div>
+                    <div class="h1">industria</div>
+                  </div>
+                  <div class="content__description">
+                    <div class="nombre">Hola, soy <b>Daniel Rivera</b>. Ingeniero industrial egresado
+                    </div> <br>
+                    <div class="small smallmod">Soy un ingeniero industrial en busca de desarrollar habilidades en la gestión de procesos y proyectos industriales para contribuir al éxito de las empresas en las que trabaje en el futuro. Aunque no tengo experiencia previa en el campo, estoy emocionado por aprender y aplicar la tecnología en la industria.
+                    </div>
+                  </div>
+                  <div class="content__btn-block">
+                    <div class="content__btn-label small">Contáctame :)</div><a class="content__btn-btn btn btn--arrow js-scroll-link" href="#hireme" data-link="6">
+                      <svg>
+                        <use xlink:href="./svg/sprite.svg#arrow"></use>
+                      </svg></a>
+                  </div>
+                  <!-- <div class="home__numbers">
+                    <div class="home__number">
+                      <div class="home__number-digital" data-number="23">23</div>
+                      <div class="home__number-text small">Mi <br>edad</div>
+                    </div>
+                    <div class="home__number">
+                      <div class="home__number-digital" data-number="5">5</div>
+                      <div class="home__number-text small">Themeforest <br>awwards</div>
+                    </div>
+                    <div class="home__number">
+                      <div class="home__number-digital" data-number="60">60</div>
+                      <div class="home__number-text small">Projects <br>Done</div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="content__right">
+                  <div class="home__circles">
+                    <div class="home__circles-lines"></div>
+                    <div class="home__circle home__circle--left"><img class="home__circle-img" src="img/12.png" alt=""></div>
+                    <div class="home__circle home__circle--right">
+                      <div class="home__circle-text">
+                        <p><u>Solo es necesario mover <br> la rueda del mouse <br> hacia abajo :)</u></p>
+                        <!-- <label class="input-file" for="brief"><span>Fill out the <br>brief to find out <br>the cost</span></label> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="projects">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>habilidades</div>
+                    <div>2.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1 h1cust">Habilidades y herramientas</div>
+                  </div>
+                  <ul class="content__menu projects__menu">
+                    <li class="active"><a href="javascript:;">análisis de procesos</a></li>
+                    <li><a href="javascript:;">software especializado</a></li>
+                    <li><a href="javascript:;">optimización de recursos</a></li>
+                    <li><a href="javascript:;">habilidades analíticas</a></li>
+                    <li><a href="javascript:;">liderazgo y comunicación</a></li>
+                    <li><a href="javascript:;">gestión de proyectos</a></li>
+                  </ul>
+                  <!-- <div class="content__btn-block">
+                    <div class="content__btn-label small">Contáctame</div><a class="content__btn-btn btn btn--arrow" href="#hireme" target="" rel="nofollow">
+                      <svg>
+                        <use xlink:href="./svg/sprite.svg#arrow"></use>
+                      </svg></a>
+                  </div> -->
+                </div>
+                <div class="content__right">
+                  <div class="projects__blocks">
+                    <div class="projects__block active"><a href="#" target="" rel="nofollow"><img src="img/procs.png" alt=""></a></div>
+                    <div class="projects__block active"><a href="#" target="" rel="nofollow"><img src="img/soft.png" alt=""></a></div>
+                    <div class="projects__block active"><a href="#" target="" rel="nofollow"><img src="img/opt.png" alt=""></a></div>
+                    <div class="projects__block active"><a href="#" target="" rel="nofollow"><img src="img/anal.png" alt=""></a></div>
+                    <div class="projects__block active"><a href="#" target="" rel="nofollow"><img src="img/lid.png" alt=""></a></div>
+                    <div class="projects__block active"><a href="#" target="" rel="nofollow"><img src="img/gest1.png" alt=""></a></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="awards">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>reconocimientos</div>
+                    <div>3.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1 h1reco">Reconocimientos</div>
+                    <div class="h1 h1reco">y Certificados</div>
+                  </div>
+                  <div class="content__description">
+                    <div class="small">Un camino lleno de aprendizaje y logros. <br> Con orgullo y gratitud, comparto mis reconocimientos y certificaciones, fruto del esfuerzo, dedicación y perseverancia. Cada uno de ellos representa un hito en mi desarrollo personal y profesional. </div>
+                  </div>
+                  <!-- <div class="content__btn-block">
+                    <div class="content__btn-label small">Mira mis proyectos</div><a class="content__btn-btn btn btn--arrow" href="#">
+                      <svg>
+                        <use xlink:href="./svg/sprite.svg#arrow"></use>
+                      </svg></a>
+                  </div> -->
+                </div>
+                <div class="content__right">
+                  <div class="content__subtitle submod">Reconocimientos y <span>Certificados</span></div>
+                  <div class="content__awards awards__list">
+                    <a href="https://www.etciberoamerica.com.gt/autodesk/designchallenge/" target="_blank">
+                      <div class="content__award">
+                        <div class="content__award-img"><img src="img/egg.png" alt=""></div>
+                        <div class="content__award-title">
+                          <p>2º Lugar en competencia de Diseño Industrial</p>
+                        </div>
+                        <div class="content__award-text small">Competencia de Diseño Industrial Latinoamericano por ETC Iberoamérica y Autodesk representando a mi universidad</div>
+                      </div>
+                    </a>
+                    <a href="https://i.imgur.com/7ROif5m.png" target="_blank">
+                      <div class="content__award">
+                        <div class="content__award-img"><img src="img/harvard.png" alt=""></div>
+                        <div class="content__award-title">
+                          <p>Liderar a Personas -  <span class="lower">Harvard ManageMentor</span></p>
+                        </div>
+                        <div class="content__award-text small">Competencia de Diseño Industrial Latinoamericano por ETC Iberoamérica y Autodesk representando a mi universidad</div>
+                      </div>
+                    </a>
+                    <a href="" target="_blank">
+                      <div class="content__award">
+                        <div class="content__award-img"><img src="img/power.png" alt=""></div>
+                        <div class="content__award-title">
+                          <p>Power BI <br><span class="lower">Udemy</span></p>
+                        </div>
+                        <div class="content__award-text small">Competencia de Diseño Industrial Latinoamericano por ETC Iberoamérica y Autodesk representando a mi universidad</div>
+                      </div>
+                    </a>
+                    <a href="https://app.aluracursos.com/certificate/danio4/logica-de-programacion-conceptos-primordiales" target="_blank">
+                      <div class="content__award">
+                        <div class="content__award-img"><img class="rounded" src="img/alura.jpg" alt=""></div>
+                        <div class="content__award-title">
+                          <p>Lógica de Programación <br><span class="lower">Oracle + Alura Latam</span></p>
+                        </div>
+                        <div class="content__award-text small">Competencia de Diseño Industrial Latinoamericano por ETC Iberoamérica y Autodesk representando a mi universidad</div>
+                      </div>
+                    </a>
+                    <a href="https://app.aluracursos.com/user/danio4/course/git-github-control-version/certificate" target="_blank">
+                      <div class="content__award">
+                        <div class="content__award-img"><img src="img/git.png" alt=""></div>
+                        <div class="content__award-title">
+                          <p>Git & GitHub -  <br><span class="lower">Oracle + Alura Latam</span></p>
+                        </div>
+                        <div class="content__award-text small">Competencia de Diseño Industrial Latinoamericano por ETC Iberoamérica y Autodesk representando a mi universidad</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="testimonials">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>referencias</div>
+                    <div>4.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content" style="background-image: url(images/testmonials-bg.png); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1">Referencias</div>
+                    <div class="h1"></div>
+                    <div class="h1"></div>
+                    <div class="small"> <br>Una travesía de constante aprendizaje y crecimiento personal. A lo largo de mi carrera, he tenido el privilegio de conocer y aprender de personas inspiradoras que han dejado una huella en mi crecimiento personal. Estas referencias representan no solo su respaldo, sino también la confianza en mis habilidades, actitud y potencial. </div>
+                  </div>
+                  <div class="testimonials__clients">
+                    <div class="testimonials__client centro"><img src="img/S1.png" alt=""></div>
+                    <div class="testimonials__client centro"><img src="img/S2.png" alt=""></div>
+                    <!-- <div class="testimonials__client centro"><img src="img/S3.png" alt=""></div> -->
+                    <!-- <div class="testimonials__client centro"><img src="img/S4.png" alt=""></div> -->
+                  </div>
+                </div>
+                <div class="content__right">
+                  <div class="content__subtitle "><span>Creatividad</span> y dedicación. Son cosas que siempre intento aportar donde esté</div>
+                  <div class="content__slider slides testimonials__slider">
+                    <div class="slides__container">
+                      <div class="slides__inner">
+                        <div class="slide">
+                          <div class="content__slider-text small">“ Si esta en busca de un Ingeniero altamente dedicado y comprometido, capaz de comprender sus necesidades y aplicar su creatividad y habilidades técnicas en perfecta sinergia con sus requisitos, Daniel es la elección ideal.</div>
+                          <div class="content__slider-name">Maribel de Quintanilla</div>
+                          <div class="content__slider-staff small2">Directora Regional de la Universidad Dr. Andrés Bello +(503) 7233-6594 </div>
+                        </div>
+                        <div class="slide">
+                          <div class="content__slider-text small">“ Daniel Rivera es un Ingeniero creativo y tecnológicamente versátil, ofrece soluciones ingeniosas y eficientes a tus necesidades. La elección perfecta para un enfoque innovador en cada proyecto.</div>
+                          <div class="content__slider-name">Carlos Solis</div>
+                          <div class="content__slider-staff small2">Docente en Universidad Cristiana de las Asambleas de Dios +(503) 7702-8505</div>
+                        </div>
+                        <!-- <div class="slide">
+                          <div class="content__slider-text small">“ If you are seeking an Interior designer that will understand exactly your needs, and someone who will utilise their creative and technical skills in parity with your taste, then Suzanne at The Bauhaus Studio is perfect.</div>
+                          <div class="content__slider-name">david & elisa</div>
+                          <div class="content__slider-staff small">Apartment view lake at Brooklyn</div>
+                        </div>
+                        <div class="slide">
+                          <div class="content__slider-text small">“ If you are seeking an Interior designer that will understand exactly your needs, and someone who will utilise their creative and technical skills in parity with your taste, then Suzanne at The Bauhaus Studio is perfect.</div>
+                          <div class="content__slider-name">david</div>
+                          <div class="content__slider-staff small">Apartment view lake at Brooklyn</div>
+                        </div> -->
+                      </div>
+                    </div>
+                    <div class="slides__controls">
+                      <button class="slides__btn slides__btn--prev btn btn--invert btn--arrow" id="prevButton">
+                        <svg>
+                          <use xlink:href="./svg/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                      <button class="slides__btn slides__btn--next btn btn--arrow" id="nextButton">
+                        <svg>
+                          <use xlink:href="./svg/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="experience">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>Educación</div>
+                    <div>5.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content">
+                <div class="content__bg" style="background-image: url(img/porta.jpg);"></div>
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1 top">Educación</div>
+                    <div class="h1"></div>
+                  </div>
+                  <div class="content__description">
+                    <div class="small">En mi sección de educación, comparto mi pasión por el aprendizaje y el crecimiento personal. <br><br> A través de diversas experiencias y conocimientos adquiridos, he cultivado una mentalidad abierta y una sed constante de conocimiento. <br><br>Esta sección es un reflejo de mi compromiso con la educación continua y mi deseo de compartir ideas, inspirar a otros y fomentar un ambiente de aprendizaje enriquecedor.</div>
+                  </div>
+                  <div class="content__btn-block"><a class="content__btn-btn btn" href="#">Curriculum</a></div>
+                </div>
+                <div class="content__right">
+                  <div class="content__awards experience__list">
+                    <div class="content__award">
+                      <div class="content__award-img"><img class="border" src="img/logo.png" alt=""></div>
+                      <div class="content__award-title edited"><span class="small">2018-2023</span>
+                        <p class="capitalize"><b>educación superior - <br> <span class="white">Grado en Ingeniería, Ingeniero Industrial <br></span></b> Universidad Tecnológica de El Salvador</p>
+                      </div>
+                      <div class="content__award-text small">Como ingeniero industrial he adquirido habilidades en gestión de proyectos, mejora de procesos y análisis de datos. Listo para enfrentar desafíos y contribuir de manera efectiva en el campo.</div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img"><img class="border" src="img/logo.png" alt=""></div>
+                      <div class="content__award-title edited"><span class="small">2023-2024</span>
+                        <p class="capitalize"><b>educación superior - <br> <span class="white">Especialidad en Visualización y Simulación Digital de Datos y Sistemas 3D</span></b> Universidad Tecnológica de El Salvador</p>
+                      </div>
+                      <div class="content__award-text small">He desarrollado habilidades en la visualización de información y representaciones visuales interactivas. Además, poseo conocimientos en programas de diseño 3D.</div>
+                    </div>
+                    <!-- <div class="content__award">
+                      <div class="content__award-img"><img src="img/soc-tw.svg" alt=""></div>
+                      <div class="content__award-title"><span class="small">2014-2017</span>
+                        <p>twitter</p>
+                      </div>
+                      <div class="content__award-text small">Credibly streamline mission-critical value with multifunctional functionalities. Leading team designers.</div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img"><img src="img/soc-inst.svg" alt=""></div>
+                      <div class="content__award-title"><span class="small">2012-2014</span>
+                        <p>instagramm</p>
+                      </div>
+                      <div class="content__award-text small">Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img"><img src="img/soc-in.svg" alt=""></div>
+                      <div class="content__award-title"><span class="small">206-2012</span>
+                        <p>linkedin</p>
+                      </div>
+                      <div class="content__award-text small">Assertively exploit wireless initiatives rather than synergistic core competencies.</div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="news">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>proyectos</div>
+                    <div>6.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1"></div>
+                    <div class="h1">Proyectos</div>
+                    <div class="small top">En esta sección, presento algunos mis proyectos en Power BI, donde he creado visualizaciones dinámicas y análisis profundos para transformar datos en información valiosa y facilitar la toma de decisiones estratégicas, usando Power BI, Excel y SQL.</div>
+                  </div>
+                  <ul class="content__menu news__menu">
+                    <li class="active"><a href="javascript:;">Finanzas Personales</a></li>
+                    <li><a href="javascript:;">Indicadores Mundiales</a></li>
+                    <li><a href="javascript:;">Reporte de recursos humanos</a></li>
+                    <li><a href="javascript:;">Ventas de videojuegos</a></li>
+                    <!-- <li><a href="javascript:;">my name is pattison</a></li> -->
+                  </ul>
+                  <!-- <div class="content__btn-block">
+                    <div class="content__btn-label small">View all works</div><a class="content__btn-btn btn btn--arrow" href="blog.html" target="_blank">
+                      <svg>
+                        <use xlink:href="./svg/sprite.svg#arrow"></use>
+                      </svg></a>
+                  </div> -->
+                </div>
+                <div class="content__right">
+                  <div class="news__blocks">
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">5 de Febrero, 2023 <br><br><br><br>
+                        <strong>CLICK EN LA IMAGEN PARA DETALLES</strong></div>
+                        <div class="news__block-text small">Con este proyecto en Power BI sobre finanzas, aprovecho la potencia de los datos para proporcionar análisis financiero detallado y visualizaciones dinámicas que impulsan la toma de decisiones estratégicas y el éxito empresarial.</div>
+                        <div class="news__block-number">(01)</div>
+                      </div>
+                      <div class="news__block-image"><a href="https://app.powerbi.com/view?r=eyJrIjoiYjE3MTllNGYtMTFkMi00YjYzLTkxZWItMjlmOTg5Yzg0NzRmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank"><img src="img/P1.png" alt=""></a></div>
+                    </div>
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">17 de Julio, 2022 <br><br><br><br>
+                          <strong>CLICK EN LA IMAGEN PARA DETALLES</strong></div>
+                        <div class="news__block-text small">Este proyecto en Power BI presenta distintas visualizaciones y análisis profundos que permiten comprender y monitorizar de manera efectiva los principales indicadores globales para una toma de decisiones informada y estratégica.</div>
+                        <div class="news__block-number">(02)</div>
+                      </div>
+                      <div class="news__block-image"><a href="https://app.powerbi.com/view?r=eyJrIjoiODNmZGZjNTQtYmI2ZC00MjI4LTg4NzUtYjk0NTk5MDQ5MTAxIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank"><img src="img/P2.png" alt=""></a></div>
+                    </div>
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">2 de Marzo, 2022 <br><br><br><br>
+                          <strong>CLICK EN LA IMAGEN PARA DETALLES</strong></div>
+                        <div class="news__block-text small">Este reporte en Power BI ofrece visualizaciones interactivas y análisis exhaustivos para poder comprender el desempeño del personal, la gestión de talento y tomar decisiones estratégicas basadas en datos precisos y relevantes.</div>
+                        <div class="news__block-number">(03)</div>
+                      </div>
+                      <div class="news__block-image"><a href="https://app.powerbi.com/view?r=eyJrIjoiYjNkNTFhOTAtNDQzMy00OTE4LTk4NGEtYTgwMzY1ZDI5MDllIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank"><img src="img/P3.png" alt=""></a></div>
+                    </div>
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">23 de Octubre, 2021 <br><br><br><br>
+                          <strong>CLICK EN LA IMAGEN PARA DETALLES</strong></div>
+                        <div class="news__block-text small">Este reporte de ventas de videojuegos en Power BI brinda un análisis detallado y visualizaciones claras para evaluar el rendimiento de ventas, identificar tendencias y tomar decisiones informadas que ayuden a entender la industria de los videojuegos.</div>
+                        <div class="news__block-number">(04)</div>
+                      </div>
+                      <div class="news__block-image"><a href="https://app.powerbi.com/view?r=eyJrIjoiMWFmYWI5ZjYtYzdiYi00NDlhLWI2ODYtYTZkNTgxYzBkNWNmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank"><img src="img/P4.png" alt=""></a></div>
+                    </div>
+                    
+                    <!-- <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">3th January, 2020</div>
+                        <div class="news__block-text small">Berling ® —  minimalism photography agency website. with the help of a  minimalistic design, the site turned out to be very  user-friendly  and responsive, and the brand became more.</div>
+                        <div class="news__block-number">(05)</div>
+                      </div>
+                      <div class="news__block-image"><a href="blog.html" target="_blank"><img src="img/news-5.jpg" alt=""></a></div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable" id="hireme">
+            <section class="contacts">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>contacto</div>
+                    <div>7.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1">Contacto</div>
+                    <!-- <div class="small">Enjoy coffe with me</div> -->
+                  </div>
+                  <ul class="content__menu contacts__menu">
+                    <li class="active"><a class="noicon" href="javascript:;" onclick="window.open('mailto:robert@info.com')"><strong>Correo</strong>: danielhrc04@gmail.com</a></li>
+                    <li class="active"><a href="tel:+50364457757"><strong>Télefono</strong>: +(503) 6445 7757</a></li>
+                    <li class="active"><a href="https://www.linkedin.com/in/daniel-hernan-rivera/" target="_blank"><strong>LinkedIn</strong>: daniel-hernan-rivera</a></li>
+                    <li class="active"><a href="https://wa.me/50364457757" target="_blank"><strong>WhatsApp:</strong> Daniel Rivera</a></li>
+                  </ul>
+                  <div class="contacts__copyright small">© Daniel Rivera 2023. Todos los derechos reservados</div>
+                </div>
+                <div class="content__right">
+                  <div class="content__subtitle">Envia un mensaje a mi correo por este <span>formulario</span> y habla conmigo :)</div>
+                  <form class="content__contacts contacts__form js-contact-form" method="post">
+                    <div class="content__brief">
+                      <!-- <div class="content__brief-title"> -->
+                        <!-- <label class="input-file"> -->
+                          <p class=""><u>Comunícate conmigo</u></p>
+                        <!-- </label> -->
+                      <!-- </div> -->
+                      <div class="content__brief-text small">Rellena el formulario con un correo válido o usa <span>cualquier</span> otro medio de comunicación disponible en la sección.</div>
+                    </div>
+                    <div class="content__form">
+                      <label class="content__form-input">
+                        <input type="text" name="name"><span class="content__form-placeholder">nombre</span>
+                      </label>
+                      <label class="content__form-input">
+                        <input type="email" name="emal" required=""><span class="content__form-placeholder">correo *</span>
+                      </label>
+                      <label class="content__form-input">
+                        <input type="text" name="msg" required="" minlength="10"><span class="content__form-placeholder">mensaje *</span>
+                      </label>
+                      <div class="content__form-btn">
+                        <button class="btn btn--arrow" type="submit">
+                          <svg>
+                            <use xlink:href="./svg/sprite.svg#arrow"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>
