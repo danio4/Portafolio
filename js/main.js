@@ -1124,10 +1124,10 @@ $(function (){
                 url: url,
                 data: form.serialize(),
                 success: function(data){
-                    alert(JSON.stringify(data));
+                    alert("Parece que GitHub tiene problemas con el envio de correos, por favor usa otra opción de comunicación");
                 },
                 error: function (data){
-                    alert(JSON.stringify(data));
+                    alert("Parece que GitHub tiene problemas con el envio de correos, por favor usa otra opción de comunicación");
                 }
             });
         } else {
