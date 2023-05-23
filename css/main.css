@@ -298,6 +298,13 @@ body::-webkit-scrollbar-thumb {
 .submod {
   max-width: 35.77083vw !important;
 }
+.svgedit {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+.bigger {
+  font-size: 1.5rem !important;
+}
 .border {
   border-radius: 25% !important;
 }
