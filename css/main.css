@@ -319,9 +319,17 @@ body::-webkit-scrollbar-thumb {
   opacity: 5 !important;
   font-size: 1vw !important;
 }
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .white {
+    font-size: 4vw !important; } }
+
 .edited {
   width: 21.14583vw !important;
 }
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .edited {
+    width: 100% !important; } }
+
 .centro {
   display: flex;
   justify-content: center;
@@ -347,6 +355,10 @@ body::-webkit-scrollbar-thumb {
 .nombre {
   font-size: 1.7vw;
 }
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .nombre {
+    font-size: 4vw; } }
+
 .smallmod {
   line-height: 1.5 !important;
 }
