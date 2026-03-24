@@ -250,7 +250,8 @@ $(window).on('load',function (){
                 '3': scrollDurationHome * 3 + projectBlocksScroll + addBlocksScroll*2,
                 '4': scrollDurationHome * 4 + projectBlocksScroll + addBlocksScroll*2,
                 '5': scrollDurationHome * 5 + projectBlocksScroll + addBlocksScroll*2,
-                '6': scrollDurationHome * 6 + projectBlocksScroll + newsBlocksScroll + addBlocksScroll*4,
+                '6': scrollDurationHome * 6 + projectBlocksScroll + addBlocksScroll*2,
+                '7': scrollDurationHome * 7 + projectBlocksScroll + newsBlocksScroll + addBlocksScroll*4,
             }
 
             let tl = gsap.timeline();
@@ -595,11 +596,75 @@ $(window).on('load',function (){
                 end: "+=" + (scrollDurationHome / 2),
                 animation: tl51
             });
-            let awardsExp = gsap.utils.toArray(".experience__list .content__award");
+            let awardsExp = gsap.utils.toArray(".experience .experience__list .content__award");
             awardsExp.forEach((award, index) => {
                 tl51.from(award, {autoAlpha: 0, bottom: -800 - 300 * index, ease: Power1.easeOut}, 0);
             });
             //experience end
+
+            //experiencia start
+            sectionNumber++;
+
+            let tlExpProfBtn = new TimelineMax({paused: true});
+            tlExpProfBtn.from(".experiencia .content__description", 0.3, {
+                autoAlpha: 0,
+                left: -600,
+                ease: Power1.easeOut
+            });
+
+            let tlTitle5b = gsap.timeline({paused: true});
+            tlTitle5b.fromTo(titles[sectionNumber], {y: "100%"},{y: "0", duration: 0.2,});
+            tlTitle5b.fromTo(titles[sectionNumber - 1], {y: "0"}, {y: "-100%", duration: 0.2,}, 0);
+
+            let tl5b = gsap.timeline();
+            let st5b = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "-1 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome),
+                onUpdate: ({progress, direction, isActive}) => {
+                    if (progress >= 0.9) {
+                        tlExpProfBtn.play();
+                    } else {
+                        tlExpProfBtn.reverse();
+                    }
+                },
+                onToggle: ({progress, direction, isActive}) => {
+                    if (!isActive && direction > 0) {
+                        if (!skipMode) tlTitle5b.play();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(5).addClass('active');
+                    } else if (isActive && direction < 0) {
+                        if (!skipMode) tlTitle5b.reverse();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(4).addClass('active');
+                    }
+                },
+                animation: tl5b
+            });
+
+            let titlesExpProf = gsap.utils.toArray(".experiencia .content__title > *");
+            titlesExpProf.forEach((title, index) => {
+                if (index % 2 === 0) {
+                    tl5b.from(title, {autoAlpha: 0, right: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                } else {
+                    tl5b.from(title, {autoAlpha: 0, left: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                }
+            });
+
+            let tl5b1 = gsap.timeline();
+            let st5b1 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + scrollDurationHome / 2 + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome / 2),
+                animation: tl5b1
+            });
+            let awardsExpProf = gsap.utils.toArray(".experiencia .experience__list .content__award");
+            awardsExpProf.forEach((award, index) => {
+                tl5b1.from(award, {autoAlpha: 0, bottom: -800 - 300 * index, ease: Power1.easeOut}, 0);
+            });
+            //experiencia end
 
             //news start
             sectionNumber++;
@@ -628,11 +693,11 @@ $(window).on('load',function (){
                     if (!isActive && direction > 0) {
                         if (!skipMode) tlTitle6.play();
                         $('.header__menu li').removeClass('active');
-                        $('.header__menu li').eq(5).addClass('active');
+                        $('.header__menu li').eq(6).addClass('active');
                     } else if (isActive && direction < 0) {
                         if (!skipMode) tlTitle6.reverse();
                         $('.header__menu li').removeClass('active');
-                        $('.header__menu li').eq(4).addClass('active');
+                        $('.header__menu li').eq(5).addClass('active');
                     }
                 },
                 animation: tl6
@@ -700,11 +765,11 @@ $(window).on('load',function (){
                     if (!isActive && direction > 0) {
                         if (!skipMode) tlTitle7.play();
                         $('.header__menu li').removeClass('active');
-                        $('.header__menu li').eq(6).addClass('active');
+                        $('.header__menu li').eq(7).addClass('active');
                     } else if (isActive && direction < 0) {
                         if (!skipMode) tlTitle7.reverse();
                         $('.header__menu li').removeClass('active');
-                        $('.header__menu li').eq(5).addClass('active');
+                        $('.header__menu li').eq(6).addClass('active');
                     }
                 },
                 animation: tl7
@@ -746,7 +811,7 @@ $(window).on('load',function (){
                 scrub:parseInt(scrubPower)/100,
                 start: "0 -" + (scrollDurationHome + projectBlocksScroll + addBlocksScroll*2),
                 end: "+=" + (scrollDurationHome * (sections.length - 3)),
-                snap: 0.25*parseInt(snapMode),
+                snap: 0.2*parseInt(snapMode),
                 onUpdate: function () {
                     blockNavigation = true;
                     $('.header__menu').addClass('blocked');
@@ -804,6 +869,8 @@ $(window).on('load',function (){
                                 tl7.progress(0);
                                 tl61.progress(0);
                                 tl6.progress(0);
+                                tl5b1.progress(0);
+                                tl5b.progress(0);
                                 tl51.progress(0);
                                 tl5.progress(0);
                                 tl41.progress(0);
@@ -815,6 +882,7 @@ $(window).on('load',function (){
 
                                 tlTitle7.progress(0).pause();
                                 tlTitle6.progress(0).pause();
+                                tlTitle5b.progress(0).pause();
                                 tlTitle5.progress(0).pause();
                                 tlTitle4.progress(0).pause();
                                 tlTitle3.progress(0).pause();
@@ -826,6 +894,8 @@ $(window).on('load',function (){
                                 tl7.progress(0);
                                 tl61.progress(0);
                                 tl6.progress(0);
+                                tl5b1.progress(0);
+                                tl5b.progress(0);
                                 tl51.progress(0);
                                 tl5.progress(0);
                                 tl41.progress(0);
@@ -837,6 +907,7 @@ $(window).on('load',function (){
 
                                 tlTitle7.progress(0).pause();
                                 tlTitle6.progress(0).pause();
+                                tlTitle5b.progress(0).pause();
                                 tlTitle5.progress(0).pause();
                                 tlTitle4.progress(0).pause();
                                 tlTitle3.progress(0).pause();
@@ -844,10 +915,12 @@ $(window).on('load',function (){
                                 break;
                             case 2:
                                 tlScrollLast.progress(0);
-                                tlScroll.progress(0.25);
+                                tlScroll.progress(0.2);
                                 tl7.progress(0);
                                 tl61.progress(0);
                                 tl6.progress(0);
+                                tl5b1.progress(0);
+                                tl5b.progress(0);
                                 tl51.progress(0);
                                 tl5.progress(0);
                                 tl41.progress(0);
@@ -859,6 +932,7 @@ $(window).on('load',function (){
 
                                 tlTitle7.progress(0).pause();
                                 tlTitle6.progress(0).pause();
+                                tlTitle5b.progress(0).pause();
                                 tlTitle5.progress(0).pause();
                                 tlTitle4.progress(0).pause();
                                 tlTitle3.progress(1).pause();
@@ -866,10 +940,12 @@ $(window).on('load',function (){
                                 break;
                             case 3:
                                 tlScrollLast.progress(0);
-                                tlScroll.progress(0.5);
+                                tlScroll.progress(0.4);
                                 tl7.progress(0);
                                 tl61.progress(0);
                                 tl6.progress(0);
+                                tl5b1.progress(0);
+                                tl5b.progress(0);
                                 tl51.progress(0);
                                 tl5.progress(0);
                                 tl41.progress(1);
@@ -881,6 +957,7 @@ $(window).on('load',function (){
 
                                 tlTitle7.progress(0).pause();
                                 tlTitle6.progress(0).pause();
+                                tlTitle5b.progress(0).pause();
                                 tlTitle5.progress(0).pause();
                                 tlTitle4.progress(1).pause();
                                 tlTitle3.progress(1).pause();
@@ -888,10 +965,12 @@ $(window).on('load',function (){
                                 break;
                             case 4:
                                 tlScrollLast.progress(0);
-                                tlScroll.progress(0.75);
+                                tlScroll.progress(0.6);
                                 tl7.progress(0);
                                 tl61.progress(0);
                                 tl6.progress(0);
+                                tl5b1.progress(0);
+                                tl5b.progress(0);
                                 tl51.progress(1);
                                 tl5.progress(1);
                                 tl41.progress(1);
@@ -903,6 +982,7 @@ $(window).on('load',function (){
 
                                 tlTitle7.progress(0).pause();
                                 tlTitle6.progress(0).pause();
+                                tlTitle5b.progress(0).pause();
                                 tlTitle5.progress(1).pause();
                                 tlTitle4.progress(1).pause();
                                 tlTitle3.progress(1).pause();
@@ -910,10 +990,37 @@ $(window).on('load',function (){
                                 break;
                             case 5:
                                 tlScrollLast.progress(0);
+                                tlScroll.progress(0.8);
+                                tl7.progress(0);
+                                tl61.progress(0);
+                                tl6.progress(0);
+                                tl5b1.progress(1);
+                                tl5b.progress(1);
+                                tl51.progress(1);
+                                tl5.progress(1);
+                                tl41.progress(1);
+                                tl4.progress(1);
+                                tl31.progress(1);
+                                tl3.progress(1);
+                                tl11.progress(1);
+                                tl1.progress(1);
+
+                                tlTitle7.progress(0).pause();
+                                tlTitle6.progress(0).pause();
+                                tlTitle5b.progress(1).pause();
+                                tlTitle5.progress(1).pause();
+                                tlTitle4.progress(1).pause();
+                                tlTitle3.progress(1).pause();
+                                tlTitle2.progress(1).pause();
+                                break;
+                            case 6:
+                                tlScrollLast.progress(0);
                                 tlScroll.progress(1);
                                 tl7.progress(0);
                                 tl61.progress(0);
                                 tl6.progress(1);
+                                tl5b1.progress(1);
+                                tl5b.progress(1);
                                 tl51.progress(1);
                                 tl5.progress(1);
                                 tl41.progress(1);
@@ -925,17 +1032,20 @@ $(window).on('load',function (){
 
                                 tlTitle7.progress(0).pause();
                                 tlTitle6.progress(1).pause();
+                                tlTitle5b.progress(1).pause();
                                 tlTitle5.progress(1).pause();
                                 tlTitle4.progress(1).pause();
                                 tlTitle3.progress(1).pause();
                                 tlTitle2.progress(1).pause();
                                 break;
-                            case 6:
+                            case 7:
                                 tlScrollLast.progress(1);
                                 tlScroll.progress(1);
                                 tl7.progress(1);
                                 tl61.progress(1);
                                 tl6.progress(1);
+                                tl5b1.progress(1);
+                                tl5b.progress(1);
                                 tl51.progress(1);
                                 tl5.progress(1);
                                 tl41.progress(1);
@@ -945,14 +1055,13 @@ $(window).on('load',function (){
                                 tl11.progress(1);
                                 tl1.progress(1);
 
-
                                 tlTitle7.progress(1).pause();
                                 tlTitle6.progress(1).pause();
+                                tlTitle5b.progress(1).pause();
                                 tlTitle5.progress(1).pause();
                                 tlTitle4.progress(1).pause();
                                 tlTitle3.progress(1).pause();
                                 tlTitle2.progress(1).pause();
-
                                 break;
                             default:
                                 break;
@@ -984,7 +1093,7 @@ $(window).on('load',function (){
                 event.preventDefault();
                 let parent = $(this).parent(),
                     progress = newsHeightsScroll[parent.index()] / (newsHeightsTotal - $('.news__blocks').innerHeight()),
-                    scrollTo = parseInt(linkData[5]) + addBlocksScroll + newsBlocksScroll*progress;
+                    scrollTo = parseInt(linkData[6]) + addBlocksScroll + newsBlocksScroll*progress;
                 st.scroll(scrollTo);
             });
         } else {
